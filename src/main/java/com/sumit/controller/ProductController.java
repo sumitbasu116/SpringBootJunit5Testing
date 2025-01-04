@@ -2,7 +2,6 @@ package com.sumit.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +24,7 @@ public class ProductController {
 	public ProductController(ProductService productService) {
 		this.productService=productService;
 	}
+	
 	@PostMapping("/add")
 	public ResponseEntity<Product> addProduct(@RequestBody Product product){
 		log.info("ProductController called for addProduct request");
@@ -33,7 +33,7 @@ public class ProductController {
 	}
 	
 	@GetMapping("/{name}")
-	public ResponseEntity<Product> updateStock(@PathVariable("name") String productName){
+	public ResponseEntity<Product> getProduct(@PathVariable("name") String productName){
 		Product fetchedProduct=productService.getProductByName(productName);
 		return new ResponseEntity<>(fetchedProduct,HttpStatus.OK);
 	}

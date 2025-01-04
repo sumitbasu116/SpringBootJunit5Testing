@@ -2,6 +2,7 @@ package com.sumit.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 
 import java.lang.reflect.InvocationTargetException;
@@ -103,5 +104,8 @@ public class ProductServiceTest {
 		});
 		//check the specific message
 		assertEquals("Invalid Product Name", runtimeException.getMessage());
+		//additionally here, we can test that productRepository never called with any product object.
+		Mockito.verify(productRepository,never()).save(Mockito.any());
+		Mockito.verify(productRepository,times(0)).save(Mockito.any());
 	}
 }
