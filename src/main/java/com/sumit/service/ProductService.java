@@ -22,10 +22,15 @@ public class ProductService {
 	}
 
 	public Product addProduct(Product product) {
-
-		Product savedProduct = productRepository.save(product);
-		log.info("Product saved successfully in DB");
-		return savedProduct;
+		boolean validation = validateProductName(product.getName());
+		if(validation) {
+			Product savedProduct = productRepository.save(product);
+			log.info("Product saved successfully in DB");
+			return savedProduct;
+		}else {
+			throw new RuntimeException("Invalid Product Name");
+		}
+		
 	}
 
 	public Product getProductByName(String productName) {
