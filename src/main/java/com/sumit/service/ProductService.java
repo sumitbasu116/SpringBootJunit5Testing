@@ -37,7 +37,12 @@ public class ProductService {
 			throw new ProductNotFoundException(productName);
 		}
 	}
-
+	
+	//private method to demonstrate private method testing
+	private boolean validateProductName(String name) {
+		return name!=null && !name.isEmpty();
+	}
+	
 	// Void method to demonstrate mocking of voids
 	public void deleteProductById(long productId) {
 		productRepository.deleteById(productId);
