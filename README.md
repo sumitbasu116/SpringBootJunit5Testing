@@ -22,3 +22,6 @@ Mockito **`when`** is defined or read as when addProduct method of ProductServic
 
 # Testing of private method
 - private method testing can be done by Java reflection. First, get the declared method and then invoke it.
+
+# Testing Exception
+- To test a method should throw exception condition, we should use `assertThrows` method and pass the Exception class name and the execution code which should throw an exception.
