@@ -25,3 +25,12 @@ Mockito **`when`** is defined or read as when addProduct method of ProductServic
 
 # Testing Exception
 - To test a method should throw exception condition, we should use `assertThrows` method and pass the Exception class name and the execution code which should throw an exception.
+- Suppose, additionaly we want to test that a method never called in a certain case e.g. after an exception thrown. We can write the code as below.
+  ```
+  Mockito.verify(productRepository,never()).save(Mockito.any());
+  ```
+  OR
+  ```
+  Mockito.verify(productRepository,times(0)).save(Mockito.any());
+  ```
+  > `Mockito.any()` will ensure that any object which is very useful if we don't have control over the object here.
