@@ -34,3 +34,10 @@ Mockito **`when`** is defined or read as when addProduct method of ProductServic
   Mockito.verify(productRepository,times(0)).save(Mockito.any());
   ```
   > `Mockito.any()` will ensure that any object which is very useful if we don't have control over the object here.
+# Perform Controller testing
+- `@WebMvcTest(Controller.class)` annotation should be used to load only a particular controller testing.
+- `@Autowired` the `MockMvc` Spring bean into our test class.
+- We need to use `@MockitoBean` to mock the service class object bean into our controller test class.
+- `mockMvc.perform` method to be used to call `post(URI)`, `get(URI)` etc. to call.
+- `andExpect` method to call to check the expected result or response status.
+  > Few more important methods: `status()`, `jsonPath`, `content` from MockMvcResultMatchers, `content` from MockHttpServletRequestBuilder etc.
