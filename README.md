@@ -16,6 +16,9 @@ Mockito **`when`** is defined or read as when addProduct method of ProductServic
 ![image](https://github.com/user-attachments/assets/109a3206-acd7-4789-846d-c83075db4da8)
 
 
-# handle testing of delete and void method
+# Testing of delete and void method
 - we can use **`doNothing`** method of `Mockito` to handle void return type for a test method.
 - Suppose, we have a delete method, we have use **`verify`** method of `Mockito` to check a internal mock dependent object method called n times.
+
+# Testing of private method
+- private method testing can be done by Java reflection. First, get the declared method and then invoke it.
