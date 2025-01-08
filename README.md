@@ -41,3 +41,16 @@ Mockito **`when`** is defined or read as when addProduct method of ProductServic
 - `mockMvc.perform` method to be used to call `post(URI)`, `get(URI)` etc. to call.
 - `andExpect` method to call to check the expected result or response status.
   > Few more important methods: `status()`, `jsonPath`, `content` from MockMvcResultMatchers, `content` from MockHttpServletRequestBuilder etc.
+  
+# Perform a testing where current year involved
+- Imagine a test case, where we will provide 26% discount on 2026 and we are developing the code in 2025. Then how to simulate this or do the unit testing for this.
+- First wthing we should understand that test case should be deterministic or always the test case result should be same or obvious.
+- One way to resolve this by writing the code as below.
+  ```
+  Mockito.when(discountedService.getCurrentYear()).thenReturn(Year.of(2026));
+  Mockito.when(discountedService.calculateDiscount(10, "XMAS")).thenCallRealMethod();
+  float discount = discountedService.calculateDiscount(10, "XMAS");
+  ```
+
+# Note
+> Spring related annotations like @Autowired,@Value will only work in a @Test class if it is annotated with `@SpringBootTest`.
