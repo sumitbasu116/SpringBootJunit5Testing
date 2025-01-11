@@ -45,7 +45,7 @@ Mockito **`when`** is defined or read as when addProduct method of ProductServic
 # Perform a testing where current year involved
 - Imagine a test case, where we will provide 26% discount on 2026 and we are developing the code in 2025. Then how to simulate this or do the unit testing for this.
 - First wthing we should understand that test case should be deterministic or always the test case result should be same or obvious.
-- One way to resolve this by writing the code as below.
+- One way to resolve this by writing the code as below. Follow the branch `Test-Case-1` for more information.
   ```
   Mockito.when(discountedService.getCurrentYear()).thenReturn(Year.of(2026));
   Mockito.when(discountedService.calculateDiscount(10, "XMAS")).thenCallRealMethod();
