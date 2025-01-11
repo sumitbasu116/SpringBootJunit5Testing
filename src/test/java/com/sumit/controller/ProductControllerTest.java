@@ -46,7 +46,6 @@ public class ProductControllerTest {
 		
 		Mockito.when(productService.addProduct(Mockito.any(Product.class)))
 		.thenReturn(savedProductOutput);
-		
 		mockMvc.perform(post(ADD_PRODUCT_URL)
 				.content(requestBody)
 				.contentType(MediaType.APPLICATION_JSON))
